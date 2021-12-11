@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/scripts/Tenant.js"></script>
+<script src="~/Delete-plugin/bootstrap-confirm-delete.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+<div class="container">
+    <h2>Tenants</h2>
+    <a href="#" class="btn btn-primary" onclick="return AddTenant();">Add Tenant</a><br /><br />
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Middle Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Nick Name
+                </th>
+                <th>
+                    DOB
+                </th>
+                <th>
+                    Active
+                </th>
+                <th>
+                    Prefix Id
+                </th>
+                <th>
+                    Gender
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody class="tbody" id="tanetsTable">
+        </tbody>
+    </table>
+</div>
+<div class="modal fade layout" id="myModal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="min-width: 700px;">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add Tenant</h4>
+                <button type="button" class="close btn btn-danger" data-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <div class="form-group row">
+                        <div class="col-3"> <label for="FirstName">First Name</label></div>
+                       <div class="col-9"> <input type="text" class="form-control" id="FirstName" placeholder="First Name" maxlength="50" /></div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-3">
+                            <label for="MiddleName">Middle Name</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="MiddleName" placeholder="Middle Name" maxlength="50" />
+                        </div>
+                            </div>
+                    <div class="form-group row">
+                        <div class="col-3">
+                            <label for="LastName">Last Name</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control" id="LastName" placeholder="Last Name" maxlength="50" />
+                        </div>
+                            </div>
+                    <div class="form-group row">
+                        <div class="col-3">
+                            <label for="NickName">Nick Name</label>
+                        </div>
+                            <div class="col-9">
+                                <input type="text" class="form-control" id="NickName" placeholder="Nick Name" maxlength="50" />
+                            </div>
+                            </div>
+                    <div class="form-group row">
+                        <div class="col-3">
+                            <label for="DOB">DOB</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="date" class="form-control" id="DOB" placeholder="DOB" />
+                        </div>
+                            </div>
+                    <div class="form-group row">
+                        <div class="col-3">
+                        <label for="Active">Active</label>
+                        </div>
+                        <div class=" col-1">
+                            <input type="checkbox" class="form-control" id="Active" placeholder="Active" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-3">
+                            <label for="PrefixId">Prefix Id</label>
+                        </div>
+                        <div class=" col-9">
+                            <input type="number" class="form-control" id="PrefixId" placeholder="PrefixId" />
+                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3">  <label>Gender</label> </div>
+                                <div class="form-group col-6" style="display: contents;" id="genderData">
+
+
+                                </div>
+                            </div>
+</form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnAdd" onclick="SaveTenant();">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
